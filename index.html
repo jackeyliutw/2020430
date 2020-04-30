@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ></html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel = "stylesheet" href="./style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <button class="enableEthereumButton">Enable Ethereum</button>
+<script>
+    if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+    }else{
+    web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    }
+    async function printposttoconsole (){
+        var coinbase = await web3.eth.getCoinbase();
+        var balance = await web3.eth.getBalance(coinbase);
+        alert(balance);
+    };
+    printposttoconsole();
+    </script>
+
+    
+
+    <!-- <script src="./index.js"></script> -->
+
+</body>
+</html>
